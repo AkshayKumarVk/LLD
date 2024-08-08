@@ -11,7 +11,7 @@ public class TextDocumentPrinter extends DocumentPrinter {
     }
 
     public void printDocument() {
-        // Print text document
+	   System.out.println ("Printing the Text document");
     }
 
     @Override

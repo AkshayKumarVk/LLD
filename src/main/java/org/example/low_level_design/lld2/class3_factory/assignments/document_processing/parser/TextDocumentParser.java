@@ -10,7 +10,7 @@ public class TextDocumentParser extends DocumentParser {
     }
 
     public void parseDocument() {
-        // Parse text document
+	   System.out.println ("Parsing the Text Document");
     }
 
     @Override
