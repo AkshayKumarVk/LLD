@@ -1,0 +1,37 @@
+classDiagram
+    class GoogleMap {
+        +findPath()
+    }
+    class PathMode {
+        <<enumerationum>>
+        - CAR,
+        - BIKE,
+        - WALK,
+        - PUBLIC_TRANSPORT
+    }
+    class client {
+        + main()
+        + demoStrategy()
+    }
+    class PathCalculator {
+        <<interface>>
+        + findPath()
+    }
+
+    class BikePathCalculator {
+        + findPath(String source, String destination)
+    }
+    class CarPathCalculator {
+        + findPath(String source, String destination)
+    }
+    class WalkPathCalculator {
+        + findPath(String source, String destination)
+    }
+
+    PathCalculator <|.. BikePathCalculator: implements
+    PathCalculator <|.. CarPathCalculator: implements
+    PathCalculator <|.. WalkPathCalculator: implements
+
+GoogleMap "1" o-- "*" PathCalculator: has
+PathCalculator "1" o-- "*" PathMode: has
+client "1" o-- "*" GoogleMap: uses
