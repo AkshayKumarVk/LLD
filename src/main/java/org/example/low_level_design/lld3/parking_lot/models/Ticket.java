@@ -9,11 +9,11 @@ import java.util.Date;
 @Setter
 public class Ticket extends BaseModel {
 
+   private Gate entryGate;
    private String ticketNumber;
    private Date entryTime;
    private ParkingSpot parkingSpot;
    private Vehicle vehicle;
-   private Gate entryGate;
    private Operator generatedBy;
 
 }
