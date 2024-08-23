@@ -22,7 +22,7 @@ public class ColumnWinningStrategy implements WinningStrategy {
 		 columnMap.put (column, new HashMap<> ());
 	  }
 
-	  Map<Symbol, Integer> columnCountMap = new HashMap<> ();
+	  Map<Symbol, Integer> columnCountMap = columnMap.get(column);
 
 //	  check if the symbol present in the column
 

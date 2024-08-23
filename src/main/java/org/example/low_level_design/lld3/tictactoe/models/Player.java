@@ -25,23 +25,23 @@ public class Player {
 	  do {
 		 do {
 //		 row calculator
-			System.out.println ("Enter the row number between 1 to " + board.getDimension ());
+			System.out.println ("Enter the row number between 0 to " + (board.getDimension ()-1));
 			row = scanner.nextInt ();
-			if (row < 1 || row > board.getDimension ()) {
-			   System.out.println ("The entered row number is invalid, Please enter a valid number");
+			if (row < 0 || row >= board.getDimension ()) {
+			   System.out.println ("Entered row number is invalid, Please enter a valid number");
 			}
 		 }
-		 while (row < 1 || row > board.getDimension ());
+		 while (row < 0 || row >= board.getDimension ());
 
 //		 Column calculation
 		 do {
-			System.out.println ("Enter the column number between 1 to " + board.getDimension ());
+			System.out.println ("Enter the column number between 0 to " + (board.getDimension ()-1));
 			column = scanner.nextInt ();
-			if (column < 1 || column > board.getDimension ()) {
-			   System.out.println ("The entered column number is invalid, please enter a valid number");
+			if (column < 0 || column >= board.getDimension ()) {
+			   System.out.println ("Entered column number is invalid, please enter a valid number");
 			}
 		 }
-		 while (column < 1 || column > board.getDimension ());
+		 while (column < 0 || column >= board.getDimension ());
 	  }
 	  while (board.getBoard ().get (row).get (column).getCellState () != CellState.EMPTY);
 	  return new Cell (row, column);

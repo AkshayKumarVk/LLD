@@ -30,7 +30,7 @@ public class GameService {
 
 //	  Valid move, we can execute on the board
 
-	  Cell currentCell = game.getBoard ().getBoard ().get (movingCell.getRow ()).get (movingCell.getRow ());
+	  Cell currentCell = game.getBoard ().getBoard ().get (movingCell.getRow ()).get (movingCell.getColumn ());
 	  currentCell.setCellState (CellState.FILLED);
 	  currentCell.setPlayer (currentPlayer);
 

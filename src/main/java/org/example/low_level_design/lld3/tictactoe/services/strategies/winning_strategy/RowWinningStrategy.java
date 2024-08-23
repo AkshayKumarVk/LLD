@@ -20,7 +20,7 @@ public class RowWinningStrategy implements WinningStrategy {
 	  if (!rowMap.containsKey (row)) {
 		 rowMap.put (row, new HashMap<> ());
 	  }
-	  Map<Symbol, Integer> rowCountMap = new HashMap<> ();
+	  Map<Symbol, Integer> rowCountMap = rowMap.get(row);
 
 //	   check if the symbol is  preset in the map
 	  if (!rowCountMap.containsKey (symbol)) {

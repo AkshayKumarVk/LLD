@@ -21,11 +21,11 @@ public class Client {
 
    private static void playTicTacToe () {
 
-	  System.out.println (" Let's play Tic Tac Toe");
+	  System.out.println ("Let's play Tic Tac Toe");
 
 	  List<Player> players= new ArrayList<> ();
 	  players.add (new Player ("Xavier", new Symbol ('X'), PlayerType.HUMAN));
-	  players.add (new Player ("Ram", new Symbol ('O'), PlayerType.HUMAN));
+	  players.add (new Player ("Ram", new Symbol ('R'), PlayerType.HUMAN));
 
 	  List<WinningStrategy> winningStrategies= List.of(
 			  new RowWinningStrategy (),
@@ -45,8 +45,7 @@ public class Client {
 	  System.out.println ("Game over");
 	  gameController.printBoard ();
 	  if (gameController.getGameState () == GameState.ENDED) {
-		 System.out.println (gameController.getWinner ().getName ());
-		 System.out.println ();
+		 System.out.println (gameController.getWinner ().getName () + " wins");
 	  }
 	  else {
 		 System.out.println (GameState.DRAW.toString ());
