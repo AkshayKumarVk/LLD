@@ -29,11 +29,13 @@ public class GameController {
 
    public GameState getGameState () {
 	  // Get the game state
+	  return gameService.getGameState ();
 
    }
 
    public Player getWinner () {
 	  // Get the winner
+	  return gameService.getWinner ();
    }
 
    public void printBoard(){

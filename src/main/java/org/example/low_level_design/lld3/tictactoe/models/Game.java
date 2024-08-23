@@ -13,12 +13,12 @@ import java.util.Random;
 
 public class Game {
    List<WinningStrategy> winningStrategies;
-   private final Board board;
-   private final List<Player> players;
-   private final List<Move> moves;
+   private Board board;
+   private List<Player> players;
+   private List<Move> moves;
    private Player winner;
-   private final GameState gameState;
-   private final int nextPlayerIndex;
+   private GameState gameState;
+   private int nextPlayerIndex;
 
 
    private Game (List<Player> players,
@@ -34,10 +34,10 @@ public class Game {
 
    }
 
-   public void makeMove(){
-	  Player currentPlayer = players.get(nextPlayerIndex);
-	  Cell moveCell = currentPlayer.makeMove(board);
-   }
+//   public void makeMove(){
+//	  Player currentPlayer = players.get(nextPlayerIndex);
+//	  Cell moveCell = currentPlayer.makeMove(board);
+//   }
 
 
 //   Builder pattern to create the Game object

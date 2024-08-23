@@ -31,12 +31,13 @@ public class Board {
 	  for (List<Cell> cells : board) {
 		 for (Cell cell : cells) {
 			if (cell.getCellState()==CellState.EMPTY) {
-			   System.out.println ("|   |");
+			   System.out.print ("|   |");
 			}
 			else {
-			   System.out.println ("|	" + cell.getPlayer ().getSymbol ()+"	|");
+			   System.out.println ("|	" + cell.getPlayer ().getSymbol ().toString ()+"	|");
 			}
 		 }
+		 System.out.println ();
 	  }
    }
 }

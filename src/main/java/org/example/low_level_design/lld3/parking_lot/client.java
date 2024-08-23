@@ -41,6 +41,7 @@ public class client {
 
 	  IssueTicketResponseDto issueTicketResponseDto =
 			  ticketController.issueTicket (issueTicketRequestDto);
+	  System.out.println ("Debug");
 
 	  System.out.println (issueTicketResponseDto.getTicket ());
    }
