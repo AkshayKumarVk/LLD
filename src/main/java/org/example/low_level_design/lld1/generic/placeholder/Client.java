@@ -1,6 +1,5 @@
-package class10_generic.placeholder;
+package org.example.low_level_design.lld1.generic.placeholder;
 
-import class10_generic.runtimeError.Pair;
 
 public class Client {
    public static void main (String[] args) {

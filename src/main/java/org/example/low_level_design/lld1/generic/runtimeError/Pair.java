@@ -1,4 +1,4 @@
-package class10_generic.runtimeError;
+package org.example.low_level_design.lld1.generic.runtimeError;
 
 public class Pair {
    Object first;

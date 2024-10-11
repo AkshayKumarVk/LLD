@@ -1,15 +1,15 @@
-package class10_generic.generic_method;
+package org.example.low_level_design.lld1.generic.generic_method;
 
 public class client {
    public static void main (String[] args) {
 //	  callPopulation ();
 //	  genericData1 ();
-//	  gernericData2 ();
-//	  genricfunction ();
+//	  genericData2 ();
+//	  genericFunction ();
 
    }
 
-   private static void genricfunction () {
+   private static void genericFunction () {
 	  GenericPair.fun (120);
 	  GenericPair.fun ("ajf");
 	  GenericPair.fun (true);

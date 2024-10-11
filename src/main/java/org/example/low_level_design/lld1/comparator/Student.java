@@ -1,5 +1,10 @@
 package org.example.low_level_design.lld1.comparator;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class Student {
    public int rollNo;
    public String name;

@@ -1,4 +1,4 @@
-package class10_generic.placeholder;
+package org.example.low_level_design.lld1.generic.placeholder;
 
 
 

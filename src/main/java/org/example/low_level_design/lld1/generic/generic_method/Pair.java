@@ -1,4 +1,4 @@
-package class10_generic.generic_method;
+package org.example.low_level_design.lld1.generic.generic_method;
 
 public class Pair {
    Object first;
