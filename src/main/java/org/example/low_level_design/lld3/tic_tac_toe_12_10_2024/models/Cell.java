@@ -17,4 +17,8 @@ public class Cell {
 	  this.column = column;
 	  this.cellState = CellState.EMPTY;
    }
+
+   public boolean isEmpty(){
+	  return cellState.equals(CellState.EMPTY);
+   }
 }

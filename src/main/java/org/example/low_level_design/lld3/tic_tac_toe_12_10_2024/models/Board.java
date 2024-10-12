@@ -5,6 +5,7 @@ import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.List;
+
 @Getter
 @Setter
 
@@ -19,12 +20,25 @@ public class Board {
 
 	  for (int i = 0; i < size; i++) {
 		 List<Cell> row = new ArrayList<> ();
-		 for(int j = 0; j < size; j++){
+		 for (int j = 0; j < size; j++) {
 			row.add (new Cell (i, j));
 		 }
 		 board.add (row);
 	  }
 
+   }
+
+   public void printBoard () {
+	  for (List<Cell> cells : board) {
+		 for (Cell cell : cells) {
+			if (cell.isEmpty ()) {
+			   System.out.print ("|  |");
+			} else {
+			   System.out.print ("| " + cell.getPlayer ().getSymbol ().getAChar () + " |");
+			}
+		 }
+		 System.out.println ();
+	  }
    }
 
 }
