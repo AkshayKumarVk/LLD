@@ -31,9 +31,27 @@ public class Client {
 
 	  Game game = controller.startGame (players);
 
-	  controller.displayBoard (game);
+	  playGame (game, controller);
+
    }
 
+   public static void playGame (Game game, GameController controller) {
+
+	  while (controller.getGameState (game).equals (GameState.IN_PROGRESS)) {
+//		 play
+
+		 controller.displayBoard (game);
+
+		 controller.makeMove (game);
+
+	  }
+	  switch (controller.getGameState (game)) {
+		 case DRAW -> System.out.println ("There is no winner for now, Please restart the game!");
+		 case CANCELLED -> System.out.println ("The game has been cancelled!");
+		 case PAUSED -> System.out.println ("The game has been paused!");
+		 case ENDED -> System.out.println (controller.getWinner (game).getName () + " won the game. Congrats...!");
+	  }
+   }
 
    public static void inputPlayer () {
 	  //	  Player Input logic

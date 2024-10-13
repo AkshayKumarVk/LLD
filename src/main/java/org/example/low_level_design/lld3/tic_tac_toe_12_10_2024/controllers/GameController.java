@@ -4,6 +4,7 @@ import org.example.low_level_design.lld3.tic_tac_toe_12_10_2024.exceptions.BotCo
 import org.example.low_level_design.lld3.tic_tac_toe_12_10_2024.exceptions.DuplicateSymbolException;
 import org.example.low_level_design.lld3.tic_tac_toe_12_10_2024.exceptions.PlayerCountException;
 import org.example.low_level_design.lld3.tic_tac_toe_12_10_2024.models.Game;
+import org.example.low_level_design.lld3.tic_tac_toe_12_10_2024.models.GameState;
 import org.example.low_level_design.lld3.tic_tac_toe_12_10_2024.models.Player;
 
 import java.util.List;
@@ -21,6 +22,7 @@ public class GameController {
 
    public void makeMove (Game game) {
 
+	  game.makeMove();
    }
 
    public Player getWinner (Game game) {
@@ -33,5 +35,9 @@ public class GameController {
 
    public void displayBoard (Game game) {
 		game.printBoard();
+   }
+
+   public GameState getGameState(Game game){
+	  return game.getGameState ();
    }
 }
