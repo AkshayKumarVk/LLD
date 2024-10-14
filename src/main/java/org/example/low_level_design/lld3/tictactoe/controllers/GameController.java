@@ -3,7 +3,7 @@ package org.example.low_level_design.lld3.tictactoe.controllers;
 import org.example.low_level_design.lld3.tictactoe.models.GameState;
 import org.example.low_level_design.lld3.tictactoe.models.Player;
 import org.example.low_level_design.lld3.tictactoe.services.GameService;
-import org.example.low_level_design.lld3.tictactoe.services.strategies.winning_strategy.WinningStrategy;
+import org.example.low_level_design.lld3.tictactoe.services.strategies.winning_strategy.GameWinningStrategy;
 
 import java.util.List;
 
@@ -16,7 +16,7 @@ public class GameController {
    }
 
 //   Start game -> calling service
-   public void startGame (List<Player> players, List<WinningStrategy> winningStrategies) {
+   public void startGame (List<Player> players, List<GameWinningStrategy> winningStrategies) {
 	  gameService.startGame (players, winningStrategies);
    }
 

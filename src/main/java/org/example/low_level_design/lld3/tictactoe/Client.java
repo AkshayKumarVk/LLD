@@ -5,11 +5,9 @@ import org.example.low_level_design.lld3.tictactoe.models.GameState;
 import org.example.low_level_design.lld3.tictactoe.models.Player;
 import org.example.low_level_design.lld3.tictactoe.models.PlayerType;
 import org.example.low_level_design.lld3.tictactoe.models.Symbol;
-import org.example.low_level_design.lld3.tictactoe.services.GameService;
-import org.example.low_level_design.lld3.tictactoe.services.strategies.winning_strategy.ColumnWinningStrategy;
-import org.example.low_level_design.lld3.tictactoe.services.strategies.winning_strategy.RowWinningStrategy;
-import org.example.low_level_design.lld3.tictactoe.services.strategies.winning_strategy.WinningStrategy;
-import org.springframework.instrument.classloading.glassfish.GlassFishLoadTimeWeaver;
+import org.example.low_level_design.lld3.tictactoe.services.strategies.winning_strategy.ColumnGameWinningStrategy;
+import org.example.low_level_design.lld3.tictactoe.services.strategies.winning_strategy.RowGameWinningStrategy;
+import org.example.low_level_design.lld3.tictactoe.services.strategies.winning_strategy.GameWinningStrategy;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,9 +25,9 @@ public class Client {
 	  players.add (new Player ("Xavier", new Symbol ('X'), PlayerType.HUMAN));
 	  players.add (new Player ("Ram", new Symbol ('R'), PlayerType.HUMAN));
 
-	  List<WinningStrategy> winningStrategies= List.of(
-			  new RowWinningStrategy (),
-			  new ColumnWinningStrategy ()
+	  List<GameWinningStrategy> winningStrategies= List.of(
+			  new RowGameWinningStrategy (),
+			  new ColumnGameWinningStrategy ()
 	  );
 	  GameController gameController = new GameController ();
 	  gameController.startGame (players, winningStrategies);

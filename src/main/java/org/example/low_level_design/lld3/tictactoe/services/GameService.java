@@ -1,14 +1,14 @@
 package org.example.low_level_design.lld3.tictactoe.services;
 
 import org.example.low_level_design.lld3.tictactoe.models.*;
-import org.example.low_level_design.lld3.tictactoe.services.strategies.winning_strategy.WinningStrategy;
+import org.example.low_level_design.lld3.tictactoe.services.strategies.winning_strategy.GameWinningStrategy;
 
 import java.util.List;
 
 public class GameService {
    private Game game;
 
-   public void startGame (List<Player> players, List<WinningStrategy> winningStrategies) {
+   public void startGame (List<Player> players, List<GameWinningStrategy> winningStrategies) {
 	  game = Game.getBuilder ().
 					 setPlayers (players).
 					 setWinningStrategies (winningStrategies).
@@ -16,7 +16,7 @@ public class GameService {
    }
 
    private boolean checkWinner (Move move) {
-	  for (WinningStrategy strategy : game.getWinningStrategies ()) {
+	  for (GameWinningStrategy strategy : game.getWinningStrategies ()) {
 		 if (strategy.isWinning (game.getBoard (), move)) {
 			return true;
 		 }

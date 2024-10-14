@@ -2,7 +2,7 @@ package org.example.low_level_design.lld3.tictactoe.models;
 
 import lombok.Getter;
 import lombok.Setter;
-import org.example.low_level_design.lld3.tictactoe.services.strategies.winning_strategy.WinningStrategy;
+import org.example.low_level_design.lld3.tictactoe.services.strategies.winning_strategy.GameWinningStrategy;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +12,7 @@ import java.util.Random;
 @Getter
 
 public class Game {
-   List<WinningStrategy> winningStrategies;
+   List<GameWinningStrategy> winningStrategies;
    private Board board;
    private List<Player> players;
    private List<Move> moves;
@@ -22,7 +22,7 @@ public class Game {
 
 
    private Game (List<Player> players,
-				 List<WinningStrategy> winningStrategies) {
+				 List<GameWinningStrategy> winningStrategies) {
 	  this.players = players;
 	  int dimension = players.size () + 1;
 	  this.board = new Board (dimension);
@@ -47,14 +47,14 @@ public class Game {
 
    public static class Builder {
 	  private List<Player> players;
-	  private List<WinningStrategy> winningStrategies;
+	  private List<GameWinningStrategy> winningStrategies;
 
 	  public Builder setPlayers (List<Player> players) {
 		 this.players = players;
 		 return this;
 	  }
 
-	  public Builder setWinningStrategies (List<WinningStrategy> winningStrategies) {
+	  public Builder setWinningStrategies (List<GameWinningStrategy> winningStrategies) {
 		 this.winningStrategies = winningStrategies;
 		 return this;
 	  }

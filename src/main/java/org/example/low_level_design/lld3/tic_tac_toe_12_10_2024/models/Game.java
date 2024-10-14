@@ -5,8 +5,8 @@ import lombok.Setter;
 import org.example.low_level_design.lld3.tic_tac_toe_12_10_2024.exceptions.BotCountException;
 import org.example.low_level_design.lld3.tic_tac_toe_12_10_2024.exceptions.DuplicateSymbolException;
 import org.example.low_level_design.lld3.tic_tac_toe_12_10_2024.exceptions.PlayerCountException;
-import org.example.low_level_design.lld3.tic_tac_toe_12_10_2024.services.strategies.winning_strategies.RowWinningStrategy;
-import org.example.low_level_design.lld3.tic_tac_toe_12_10_2024.services.strategies.winning_strategies.WinningStrategy;
+import org.example.low_level_design.lld3.tic_tac_toe_12_10_2024.services.strategies.winning_strategies.GameWinningStrategy;
+import org.example.low_level_design.lld3.tic_tac_toe_12_10_2024.services.strategies.winning_strategies.RowGameWinningStrategy;
 
 import java.util.*;
 
@@ -20,9 +20,11 @@ public class Game {
    private GameState gameState;
    private Player winner;
    private int nextPlayerIndex;
+   private List<GameWinningStrategy> gameWinningStrategies;
 
-   private Game (List<Player> players) {
+   private Game (List<Player> players, List<GameWinningStrategy> gameWinningStrategies) {
 	  this.players = players;
+	  this.gameWinningStrategies = gameWinningStrategies;
 	  this.board = new Board (players.size () + 1);
 	  this.moves = new ArrayList<> ();
 	  this.gameState = GameState.IN_PROGRESS;
@@ -87,17 +89,27 @@ public class Game {
 
    //checking winner
    private boolean checkWinner (Board board, Move move) {
-	  WinningStrategy winningStrategy = new RowWinningStrategy ();
-	  return winningStrategy.checkWinning (board, move);
+	 for(GameWinningStrategy gameWinningStrategy : gameWinningStrategies){
+		if(gameWinningStrategy.isWinning (board,move)){
+		   return true;
+		}
+	 }
+	  return false;
    }
    //checking winner
 
 
    public static class Builder {
 	  private List<Player> players;
+	  private List<GameWinningStrategy> gameWinningStrategies;
 
 	  public Builder setPlayers (List<Player> players) {
 		 this.players = players;
+		 return this;
+	  }
+
+	  public Builder setGameWinningStrategies (List<GameWinningStrategy> gameWinningStrategies) {
+		 this.gameWinningStrategies = gameWinningStrategies;
 		 return this;
 	  }
 
@@ -146,7 +158,7 @@ public class Game {
 //		 Validations
 		 validateGame (players);
 
-		 return new Game (players);
+		 return new Game (players, gameWinningStrategies);
 	  }
    }
 }

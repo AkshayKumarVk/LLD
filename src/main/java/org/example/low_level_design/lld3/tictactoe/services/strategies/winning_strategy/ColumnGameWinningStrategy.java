@@ -6,9 +6,8 @@ import org.example.low_level_design.lld3.tictactoe.models.Symbol;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.TreeMap;
 
-public class ColumnWinningStrategy implements WinningStrategy {
+public class ColumnGameWinningStrategy implements GameWinningStrategy {
 
    Map<Integer, Map<Symbol, Integer>> columnMap = new HashMap<> ();
 

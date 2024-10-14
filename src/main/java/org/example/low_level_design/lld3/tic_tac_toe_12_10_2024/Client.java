@@ -5,6 +5,10 @@ import org.example.low_level_design.lld3.tic_tac_toe_12_10_2024.exceptions.BotCo
 import org.example.low_level_design.lld3.tic_tac_toe_12_10_2024.exceptions.DuplicateSymbolException;
 import org.example.low_level_design.lld3.tic_tac_toe_12_10_2024.exceptions.PlayerCountException;
 import org.example.low_level_design.lld3.tic_tac_toe_12_10_2024.models.*;
+import org.example.low_level_design.lld3.tic_tac_toe_12_10_2024.services.strategies.winning_strategies.ColumnGameWinningStrategy;
+import org.example.low_level_design.lld3.tic_tac_toe_12_10_2024.services.strategies.winning_strategies.DiagonalGameWinningStrategy;
+import org.example.low_level_design.lld3.tic_tac_toe_12_10_2024.services.strategies.winning_strategies.GameWinningStrategy;
+import org.example.low_level_design.lld3.tic_tac_toe_12_10_2024.services.strategies.winning_strategies.RowGameWinningStrategy;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,9 +31,16 @@ public class Client {
 //	  players.add (new Player ("4", new Symbol ('R'), PlayerType.HUMAN));
 	  players.add (new Bot ("Bot", new Symbol ('O'), BotDifficultyLevel.EASY));
 
+	  List<GameWinningStrategy> gameWinningStrategies = List.of (
+			  new RowGameWinningStrategy (),
+			  new ColumnGameWinningStrategy (),
+			  new DiagonalGameWinningStrategy ()
+	  );
+
+
 	  GameController controller = new GameController ();
 
-	  Game game = controller.startGame (players);
+	  Game game = controller.startGame (players, gameWinningStrategies);
 
 	  playGame (game, controller);
 

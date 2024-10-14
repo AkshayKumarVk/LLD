@@ -3,6 +3,6 @@ package org.example.low_level_design.lld3.tictactoe.services.strategies.winning_
 import org.example.low_level_design.lld3.tictactoe.models.Board;
 import org.example.low_level_design.lld3.tictactoe.models.Move;
 
-public interface WinningStrategy {
+public interface GameWinningStrategy {
    boolean isWinning(Board board, Move move);
 }

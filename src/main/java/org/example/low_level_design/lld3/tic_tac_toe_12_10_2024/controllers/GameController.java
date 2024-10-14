@@ -6,23 +6,27 @@ import org.example.low_level_design.lld3.tic_tac_toe_12_10_2024.exceptions.Playe
 import org.example.low_level_design.lld3.tic_tac_toe_12_10_2024.models.Game;
 import org.example.low_level_design.lld3.tic_tac_toe_12_10_2024.models.GameState;
 import org.example.low_level_design.lld3.tic_tac_toe_12_10_2024.models.Player;
+import org.example.low_level_design.lld3.tic_tac_toe_12_10_2024.services.strategies.winning_strategies.GameWinningStrategy;
 
 import java.util.List;
 
 public class GameController {
 
-   public Game startGame (List<Player> players) throws PlayerCountException,
-															   DuplicateSymbolException,
-															   BotCountException {
+   public Game startGame (List<Player> players,
+						  List<GameWinningStrategy> gameWinningStrategies)
+		   throws PlayerCountException,
+						  DuplicateSymbolException,
+						  BotCountException {
 
 	  return Game.getBuilder ()
-					 .setPlayers (players)
+					 .setPlayers (players).
+					 setGameWinningStrategies (gameWinningStrategies)
 					 .build ();
    }
 
    public void makeMove (Game game) {
 
-	  game.makeMove();
+	  game.makeMove ();
    }
 
    public Player getWinner (Game game) {
@@ -34,10 +38,10 @@ public class GameController {
    }
 
    public void displayBoard (Game game) {
-		game.printBoard();
+	  game.printBoard ();
    }
 
-   public GameState getGameState(Game game){
+   public GameState getGameState (Game game) {
 	  return game.getGameState ();
    }
 }
