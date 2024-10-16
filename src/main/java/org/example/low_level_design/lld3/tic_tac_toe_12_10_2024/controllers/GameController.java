@@ -18,10 +18,10 @@ public class GameController {
 						  DuplicateSymbolException,
 						  BotCountException {
 
-	  return Game.getBuilder ()
-					 .setPlayers (players).
-					 setGameWinningStrategies (gameWinningStrategies)
-					 .build ();
+	  return Game.getBuilder ().
+					 setPlayers (players).
+					 setGameWinningStrategies (gameWinningStrategies).
+					 build ();
    }
 
    public void makeMove (Game game) {

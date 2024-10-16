@@ -4,6 +4,7 @@ import org.example.low_level_design.lld3.tic_tac_toe_12_10_2024.controllers.Game
 import org.example.low_level_design.lld3.tic_tac_toe_12_10_2024.exceptions.BotCountException;
 import org.example.low_level_design.lld3.tic_tac_toe_12_10_2024.exceptions.DuplicateSymbolException;
 import org.example.low_level_design.lld3.tic_tac_toe_12_10_2024.exceptions.PlayerCountException;
+import org.example.low_level_design.lld3.tic_tac_toe_12_10_2024.exceptions.UnknownDifficultyLevelException;
 import org.example.low_level_design.lld3.tic_tac_toe_12_10_2024.models.*;
 import org.example.low_level_design.lld3.tic_tac_toe_12_10_2024.services.strategies.winning_strategies.ColumnGameWinningStrategy;
 import org.example.low_level_design.lld3.tic_tac_toe_12_10_2024.services.strategies.winning_strategies.DiagonalGameWinningStrategy;
@@ -15,7 +16,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Client {
-   public static void main (String[] args) throws PlayerCountException, DuplicateSymbolException, BotCountException {
+   public static void main (String[] args) throws PlayerCountException, DuplicateSymbolException, BotCountException, UnknownDifficultyLevelException {
 
 	  //	  Starting the game
 	  System.out.println ("Starting TicTacToe game...");
@@ -29,7 +30,8 @@ public class Client {
 //	  players.add (new Player ("2", new Symbol ('W'), PlayerType.HUMAN));
 //	  players.add (new Player ("3", new Symbol ('U'), PlayerType.HUMAN));
 //	  players.add (new Player ("4", new Symbol ('R'), PlayerType.HUMAN));
-	  players.add (new Bot ("Bot", new Symbol ('O'), BotDifficultyLevel.EASY));
+	  players.add (new Bot ("Bot", new Symbol ('O'), BotDifficultyLevel.MEDIUM));
+//	  players.add (new Bot ("Scaler", new Symbol ('V'), BotDifficultyLevel.EASY));
 
 	  List<GameWinningStrategy> gameWinningStrategies = List.of (
 			  new RowGameWinningStrategy (),

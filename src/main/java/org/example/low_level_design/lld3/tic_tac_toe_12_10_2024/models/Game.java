@@ -6,7 +6,6 @@ import org.example.low_level_design.lld3.tic_tac_toe_12_10_2024.exceptions.BotCo
 import org.example.low_level_design.lld3.tic_tac_toe_12_10_2024.exceptions.DuplicateSymbolException;
 import org.example.low_level_design.lld3.tic_tac_toe_12_10_2024.exceptions.PlayerCountException;
 import org.example.low_level_design.lld3.tic_tac_toe_12_10_2024.services.strategies.winning_strategies.GameWinningStrategy;
-import org.example.low_level_design.lld3.tic_tac_toe_12_10_2024.services.strategies.winning_strategies.RowGameWinningStrategy;
 
 import java.util.*;
 
@@ -22,7 +21,9 @@ public class Game {
    private int nextPlayerIndex;
    private List<GameWinningStrategy> gameWinningStrategies;
 
-   private Game (List<Player> players, List<GameWinningStrategy> gameWinningStrategies) {
+   private Game (List<Player> players,
+				 List<GameWinningStrategy> gameWinningStrategies) {
+
 	  this.players = players;
 	  this.gameWinningStrategies = gameWinningStrategies;
 	  this.board = new Board (players.size () + 1);
@@ -47,10 +48,15 @@ public class Game {
 	  int row = move.getCell ().getRow ();
 	  int column = move.getCell ().getColumn ();
 
-	  Cell currentCell = board.getBoard ().get (row).get (column);
+	  Cell currentCell = board.
+								 getBoard ().
+								 get (row).
+								 get (column);
 
-	  return row >= 0 && row < board.getSize () &&
-					 column >= 0 && column < board.getSize () &&
+	  return row >= 0 &&
+					 row < board.getSize () &&
+					 column >= 0 &&
+					 column < board.getSize () &&
 					 currentCell.isEmpty ();
    }
 
@@ -65,8 +71,10 @@ public class Game {
 	  int row = move.getCell ().getRow ();
 	  int column = move.getCell ().getColumn ();
 
-	  Cell cell = board.getBoard ().
-						  get (row).get (column);
+	  Cell cell = board.
+						  getBoard ().
+						  get (row).
+						  get (column);
 
 	  cell.setPlayer (currentPlayer);
 	  cell.setCellState (CellState.OCCUPIED);
@@ -89,11 +97,12 @@ public class Game {
 
    //checking winner
    private boolean checkWinner (Board board, Move move) {
-	 for(GameWinningStrategy gameWinningStrategy : gameWinningStrategies){
-		if(gameWinningStrategy.isWinning (board,move)){
-		   return true;
-		}
-	 }
+	  for (GameWinningStrategy gameWinningStrategy : gameWinningStrategies) {
+		 if (gameWinningStrategy.isWinning (board, move)) {
+			printBoard ();
+			return true;
+		 }
+	  }
 	  return false;
    }
    //checking winner
