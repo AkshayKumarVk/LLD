@@ -10,4 +10,11 @@ public class Vehicle extends BaseModel {
    private String regNO;
    private String ownerName;
    private VehicleType type;
+
+   public Vehicle (String regNO, String ownerName, VehicleType type) {
+	  this.regNO = regNO;
+	  this.ownerName = ownerName;
+	  this.type = type;
+   }
+
 }

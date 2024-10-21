@@ -7,7 +7,7 @@ import lombok.Setter;
 @Setter
 
 public class Gate extends BaseModel {
-   private String number;
+   private String gateNumber;
    private Operator operator;
    private GateType gateType;
    private GateStatus status;
