@@ -9,7 +9,7 @@ import java.util.Date;
 @Setter
 
 public abstract class BaseModel {
-   private int id;
+   private Long id;
    private Date GeneratedAt;
    private Date updatedAt;
 }

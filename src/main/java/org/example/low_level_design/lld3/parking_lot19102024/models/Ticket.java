@@ -12,9 +12,8 @@ import java.util.List;
 public class Ticket extends BaseModel {
    private String number;
    private Date entryTime;
+   private Operator generatedBy;
+   private Gate entryGate;
    private Vehicle vehicle;
    private ParkingSpot parkingSpot;
-   private List<Payment> paymentList;
-   private Bill bill;
-   private Gate exitGate;
 }
